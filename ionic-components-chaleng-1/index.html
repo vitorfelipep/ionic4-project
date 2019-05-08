@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Courses</title>
+
+    <script src="https://unpkg.com/@ionic/core@latest/dist/ionic.js"></script>
+    <link href="https://unpkg.com/@ionic/core@latest/css/ionic.bundle.css" rel="stylesheet">
+</head>
+<body>
+    <ion-app>
+
+        <!-- Header -->
+        <ion-header>
+            <ion-toolbar color="primary">
+                <ion-buttons slot="start">
+                <ion-back-button></ion-back-button>
+                </ion-buttons>
+                <ion-title>My Courses</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <!-- End header -->
+        
+        <!-- Content-->
+        <ion-content>
+                <ion-grid>
+                    <ion-row>
+                        <ion-col size-md="6" offset-md="3">
+                                <ion-card>
+                                    <ion-card-header>
+                                        <ion-card-title>My Courses</ion-card-title>
+                                    </ion-card-header>
+                                    <ion-card-content>
+                                        <ion-item>
+                                            <ion-label position="floating">Course Name</ion-label>
+                                            <ion-input type="text" id="input-course" ></ion-input>
+                                        </ion-item>
+                                        <ion-item>
+                                            <ion-range min="0" max="5" color="secondary" pin="true" 
+                                                snaps="true" mode="md" value="number"  id="input-rating">
+                                              <ion-label slot="start">0</ion-label>
+                                              <ion-label slot="end">5</ion-label>
+                                            </ion-range>
+                                        </ion-item>
+                                        <div margin-vertical >
+                                           <ion-button id="btn-confirm">
+                                                <ion-icon slot="start" name="add"
+                                                    ></ion-icon> ADD</ion-button>
+                                        </div>
+                                    </ion-card-content>
+                                </ion-card>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col>
+                            <ion-list id="rating-courses-list">
+                                  
+                            </ion-list>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+        </ion-content>
+        <!-- End content -->
+        
+        <!-- Footer-->
+        <ion-footer>
+            
+        </ion-footer>
+        <!-- End Footer-->
+        <ion-alert-controller></ion-alert-controller>
+    </ion-app>
+
+    <script src="app.js" ></script>
+</body>
+</html>
