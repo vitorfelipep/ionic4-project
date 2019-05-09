@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title >Recipes</ion-title>
+    <!-- Animated Searchbar -->
+    <!-- <ion-searchbar animated ></ion-searchbar>   -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <app-recipe-item *ngFor="let recipe of recipes" 
+    [recipeItem]="recipe"></app-recipe-item>
+  </ion-list>
+
+<!-- Crescent -->
+<!-- <ion-spinner name="crescent" padding ></ion-spinner> -->
+</ion-content>

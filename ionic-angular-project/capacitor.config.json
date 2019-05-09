@@ -1,0 +1,9 @@
+{
+  "appId": "com.udemy.course.ionic.angular",
+  "appName": "ionic-angular-project",
+  "bundledWebRuntime": false,
+  "webDir": "www",
+  "server": {
+    "url": "http://192.168.201.49:8100"
+  }
+}
