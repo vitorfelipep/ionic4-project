@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 import { SegmentChangeEventDetail } from '@ionic/core';
 
@@ -10,7 +10,7 @@ import { Place } from '../place.model';
   templateUrl: './discover.page.html',
   styleUrls: ['./discover.page.scss'],
 })
-export class DiscoverPage implements OnInit {
+export class DiscoverPage implements OnInit, OnDestroy {
 
   loadPlaces: Array<Place>;
   listedLoadedPlaces: Array<Place>;
@@ -21,7 +21,11 @@ export class DiscoverPage implements OnInit {
 
   ngOnInit() {
     this.loadPlaces = this.placesService.getAllPlaces();
-    this.listedLoadedPlaces = this.loadPlaces;
+    this.listedLoadedPlaces = this.placesService.places;
+  }
+
+  ngOnDestroy() {
+    console.log('Destroyed');
   }
 
   onOpenMenu() {
