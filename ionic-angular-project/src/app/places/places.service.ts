@@ -6,12 +6,11 @@ import { AuthService } from '../auth/auth.service';
   providedIn: 'root'
 })
 export class PlacesService {
-  private _places: Array<Place>;
+  private _places: Array<Place> = new Array<Place>();
 
   constructor(private authService: AuthService) {}
 
   getAllPlaces(): Array<Place> {
-    this._places = new Array<Place>();
     this._places.push(
       new Place(
         'place-5',
@@ -123,7 +122,7 @@ export class PlacesService {
       price,
       dateFrom,
       dateTo,
-      this.authService.getUserId()
+      this.authService.userId
     );
 
     this._places.push(newPlace);

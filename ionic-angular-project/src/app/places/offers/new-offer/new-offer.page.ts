@@ -49,6 +49,6 @@ export class NewOfferPage implements OnInit {
       new Date(this.form.value.dateFrom),
       new Date(this.form.value.dateTo)
     );
-    console.log(this.placesService.places);
+    // console.log(this.placesService.places);
   }
 }
