@@ -21,7 +21,7 @@
           offset-sm="2"
           text-center>
           <ion-list>
-            <ion-item-sliding  *ngFor="let offer of myOffers.slice(0,2)" #slidingItem>
+            <ion-item-sliding  *ngFor="let offer of myOffers" #slidingItem>
                 <app-offer-item [offer]="offer"></app-offer-item>
                 <ion-item-options >
                   <ion-item-option color="secondary" (click)="onEdit(offer.id, slidingItem)">

@@ -4,6 +4,7 @@ import { SegmentChangeEventDetail } from '@ionic/core';
 
 import { PlacesService } from '../places.service';
 import { Place } from '../place.model';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-discover',
@@ -14,18 +15,24 @@ export class DiscoverPage implements OnInit, OnDestroy {
 
   loadPlaces: Array<Place>;
   listedLoadedPlaces: Array<Place>;
+  private placesSub: Subscription;
 
   constructor(
     private placesService: PlacesService,
     private menuCtrl: MenuController) { }
 
   ngOnInit() {
-    this.loadPlaces = this.placesService.getAllPlaces();
-    this.listedLoadedPlaces = this.placesService.places;
+    this.placesSub = this.placesService.places.subscribe(places => {
+      this.loadPlaces = places;
+      this.listedLoadedPlaces = this.loadPlaces.slice(1);
+    });
   }
 
   ngOnDestroy() {
-    console.log('Destroyed');
+    if (this.placesSub) {
+      this.placesSub.unsubscribe();
+      console.log('Destroyed');
+    }
   }
 
   onOpenMenu() {
